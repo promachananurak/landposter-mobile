@@ -3,24 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LandPoster Mobile v0.7 Direct Export</title>
+<title>LandPoster Mobile v0.8 Single Canvas</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#e9e7df;color:#143323;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .wrap{max-width:760px;margin:auto;padding:14px}
 .card{background:#fff;border-radius:18px;padding:14px;margin:12px 0;box-shadow:0 5px 18px #0001}
-h1{font-size:25px;margin:2px 0 4px}h2{font-size:17px;margin:0 0 10px}.hint{font-size:13px;color:#617064;line-height:1.35}
+h1{font-size:25px;margin:2px 0 4px;line-height:1.2}h2{font-size:17px;margin:0 0 10px}.hint{font-size:13px;color:#617064;line-height:1.35}.versionMark{font-size:12px;color:#879085;margin-top:6px}
 label{display:block;margin:10px 0;font-size:13px;color:#405044}input,select{width:100%;font-size:16px;border:1px solid #cfd5cc;border-radius:12px;padding:11px;background:#fff}input[type=file]{padding:8px}
 .thumb{width:100%;height:88px;object-fit:cover;border-radius:12px;margin-top:8px;background:#ddd;display:block}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 button{width:100%;border:0;border-radius:16px;padding:15px;margin:8px 0;background:#123d29;color:#fff;font-size:18px;font-weight:800}button.secondary{background:#d5ad43;color:#102719}
 .chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid #cfd5cc;background:#f5f5f2;border-radius:999px;padding:9px 12px;font-size:14px;color:#26352c;width:auto;margin:0}.chip.on{background:#123d29;color:white}
-.preview{overflow:auto;background:#d9ddd6;border-radius:18px;padding:10px}.poster{width:1080px;height:1350px;background:white;transform-origin:top left;box-shadow:0 10px 30px #0003;overflow:hidden}.top{height:205px;background:#123d29;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:42px 52px}.top h1{font-size:56px;line-height:1.04;margin:0;max-width:640px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.top p{font-size:26px;margin:10px 0 0;opacity:.9;max-width:620px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.price{background:#d5ad43;color:#102719;border-radius:24px;padding:22px 30px;text-align:right;min-width:330px;max-width:360px}.price b{display:block;font-size:46px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.price span{display:block;font-size:30px;font-weight:800;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.img{background:#d8ddd5;display:grid;place-items:center;overflow:hidden;color:#53645a;font-weight:800;position:relative}.img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}.hero{height:500px;cursor:crosshair}.pin{position:absolute;transform:translate(-50%,-100%);display:flex;align-items:center;gap:8px;z-index:5;filter:drop-shadow(0 3px 6px rgba(0,0,0,.45))}.pinDot{width:30px;height:30px;border-radius:999px;background:#f13b5f;border:4px solid white;flex:0 0 auto}.pin.place .pinDot{background:#2c7be5}.pinLabel{background:rgba(18,61,41,.92);color:white;border-radius:999px;padding:9px 14px;font-size:24px;white-space:nowrap;font-weight:900;max-width:320px;overflow:hidden;text-overflow:ellipsis}.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;padding:26px 38px 38px}.grid h2{font-size:32px;color:#123d29;margin:0 0 12px}.photoGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}.photoGrid.one{grid-template-columns:1fr}.photo2,.photo3{height:170px;border-radius:18px}ul{margin:0 0 14px;padding:0;list-style:none}li{font-size:25px;margin:9px 0;padding:12px 15px;background:#f2f3ef;border-left:9px solid #d5ad43;border-radius:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.potential{background:#123d29;color:white;border-radius:20px;padding:16px;margin-bottom:14px;min-height:112px}.potential h3{font-size:26px;margin:0 0 10px}.tags{display:flex;flex-wrap:wrap;gap:8px;max-height:92px;overflow:hidden}.tag{font-size:22px;background:#d5ad43;color:#102719;border-radius:999px;padding:8px 12px;font-weight:900;white-space:nowrap}.contact{height:210px;margin-top:24px;border-radius:22px;background:#123d29;color:white;display:grid;grid-template-columns:160px 1fr;gap:20px;padding:20px;align-items:center;overflow:hidden}.qr{width:160px;height:148px;border-radius:14px;background:white;color:#123d29}.contact strong{font-size:26px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.contact p{font-size:25px;margin:10px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}canvas{display:none}
-.exportResult{display:none}.exportResult img{width:100%;height:auto;border-radius:14px;background:#eee;border:1px solid #ccd2ca}.openFull{display:block;text-align:center;background:#d5ad43;color:#102719;text-decoration:none;border-radius:16px;padding:14px;margin:10px 0;font-size:17px;font-weight:900}.versionMark{font-size:12px;color:#879085;margin-top:6px}
+.preview{background:#d9ddd6;border-radius:18px;padding:10px;overflow:hidden}
+#previewCanvas{width:100%;height:auto;display:block;background:white;border-radius:12px;box-shadow:0 10px 30px #0003;touch-action:manipulation}
+.exportResult{display:none}.exportResult img{width:100%;height:auto;border-radius:14px;background:#eee;border:1px solid #ccd2ca}.openFull{display:block;text-align:center;background:#d5ad43;color:#102719;text-decoration:none;border-radius:16px;padding:14px;margin:10px 0;font-size:17px;font-weight:900}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="card"><h1>LandPoster Mobile v0.7 Direct Export</h1><div class="hint">รอบนี้ Export แล้วจะแสดงภาพผลลัพธ์สดใต้ปุ่มทันที ไม่ต้องเดาว่า iPhone เอาภาพเก่ามาเปิดหรือเปล่า</div><div class="versionMark">version: v0.7-direct-canvas-2026-07-02</div></div>
+  <div class="card"><h1>LandPoster Mobile v0.8 Single Canvas</h1><div class="hint">Preview กับ Export ใช้ canvas ตัวเดียวกัน 100% ดังนั้นภาพที่เห็นด้านล่างคือภาพเดียวกับ JPG ที่ออกจริง</div><div class="versionMark">version: v0.8-single-canvas-2026-07-02</div></div>
 
   <div class="card"><h2>1. รูปเกี่ยวกับที่ดิน</h2><div class="hint">ใส่แค่รูปเดียวก็ได้ ไม่บังคับครบ 3 รูป</div>
     <label>รูปที่ 1 / รูปหลัก <input id="photo1File" type="file" accept="image/*"><img id="photo1Thumb" class="thumb"></label>
@@ -28,6 +29,7 @@ button{width:100%;border:0;border-radius:16px;padding:15px;margin:8px 0;backgrou
     <label>รูปที่ 3 <input id="photo3File" type="file" accept="image/*"><img id="photo3Thumb" class="thumb"></label>
     <label>QR Code <input id="qrFile" type="file" accept="image/*"><img id="qrThumb" class="thumb"></label>
   </div>
+
   <div class="card"><h2>2. ข้อมูลหลัก</h2>
     <label>หัวข้อ <input id="title" value="ขายที่ดินลานสกา"></label>
     <label>พื้นที่ <input id="size" value="162.7 ตร.ว."></label>
@@ -36,82 +38,190 @@ button{width:100%;border:0;border-radius:16px;padding:15px;margin:8px 0;backgrou
     <label>โทร <input id="phone" value="0641873579"></label>
     <label>LINE <input id="line" value="manamanamana30"></label>
   </div>
+
   <div class="card"><h2>3. จุดเด่น</h2>
     <label>จุดเด่น 1 <input id="h1" value="ใกล้ สภ.อ.ลานสกา"></label>
     <label>จุดเด่น 2 <input id="h2" value="ติดถนน นศ.3013"></label>
     <label>จุดเด่น 3 <input id="h3" value="เดินทางสะดวก อยู่ในชุมชน"></label>
     <label>จุดเด่น 4 <input id="h4" value="เจ้าของขายเอง พร้อมโอน"></label>
   </div>
+
   <div class="card"><h2>4. เหมาะสำหรับ</h2><div id="chips" class="chips"></div></div>
+
   <div class="card"><h2>5. Pin บนรูปหลัก</h2>
-    <div class="hint">กดบนรูปที่ 1 ใน Preview เพื่อวาง Pin</div>
+    <div class="hint">กดบนภาพ Preview ด้านล่าง เฉพาะบริเวณรูปหลัก เพื่อวาง Pin</div>
     <div class="row"><select id="pinType"><option value="land">แปลงที่ดิน</option><option value="place">สถานที่สำคัญ</option></select><input id="pinLabel" value="แปลงที่ดิน"></div>
     <button class="secondary" id="clearPins">ลบ Pin ทั้งหมด</button>
     <button id="exportBtn">Export JPG / แสดงผลด้านล่าง</button>
   </div>
-  <div id="exportResult" class="card exportResult"><h2>ภาพ JPG ที่ Export แล้ว</h2><div class="hint">ถ้าภาพนี้มีหัวข้อ/ราคา แปลว่า code ใหม่ทำงานแล้ว กดค้างที่ภาพเพื่อ Save หรือกดเปิดภาพเต็ม</div><a id="openFull" class="openFull" href="#" target="_blank" rel="noopener">เปิดภาพเต็ม</a><img id="exportImg" alt="ภาพ export"></div>
-  <div class="card"><h2>Preview / Export Layout</h2><div class="preview"><div id="poster" class="poster">
-    <div class="top"><div><h1 data-bind="title"></h1><p data-bind="location"></p></div><div class="price"><b data-bind="priceText"></b><span data-bind="size"></span></div></div>
-    <div id="heroBox" class="img hero">รูปเกี่ยวกับที่ดิน 1</div>
-    <div class="grid"><div><div id="photoGrid" class="photoGrid"><div id="photo2Box" class="img photo2">รูปที่ 2</div><div id="photo3Box" class="img photo3">รูปที่ 3</div></div><div class="potential"><h3>เหมาะสำหรับ</h3><div id="posterTags" class="tags"></div></div></div><div><h2>จุดเด่นแปลงนี้</h2><ul><li data-bind="h1"></li><li data-bind="h2"></li><li data-bind="h3"></li><li data-bind="h4"></li></ul><div class="contact"><div id="qrBox" class="img qr">QR</div><div><strong>ติดต่อเจ้าของขายเอง</strong><p>โทร <span data-bind="phone"></span></p><p>LINE: <span data-bind="line"></span></p></div></div></div></div>
-  </div></div></div>
+
+  <div id="exportResult" class="card exportResult"><h2>ภาพ JPG ที่ Export แล้ว</h2><div class="hint">ภาพนี้มาจาก canvas เดียวกับ Preview ถ้าต่างกันให้ดูว่าเปิดไฟล์เก่าหรือไม่</div><a id="openFull" class="openFull" href="#" target="_blank" rel="noopener">เปิดภาพเต็ม</a><img id="exportImg" alt="ภาพ export"></div>
+
+  <div class="card"><h2>Preview / Export Layout</h2><div class="preview"><canvas id="previewCanvas" width="1080" height="1350"></canvas></div></div>
 </div>
-<canvas id="canvas" width="1080" height="1350"></canvas>
+
 <script>
 (function(){
+const W=1080,H=1350;
+const HERO={x:0,y:205,w:1080,h:500};
 const $=id=>document.getElementById(id);
 const val=id=>($(id)?.value||"").trim();
 const fields=["title","size","priceText","location","h1","h2","h3","h4","phone","line"];
 const images={photo1:null,photo2:null,photo3:null,qr:null};
+const imageCache=new Map();
 const potentials=["🏡 บ้านพัก","☕ คาเฟ่","🏪 ร้านค้า","🏢 สำนักงาน","📈 ลงทุน","🌳 สวน"];
 let selected=["🏡 บ้านพัก","☕ คาเฟ่","🏪 ร้านค้า"], pins=[];
-function bind(){fields.forEach(id=>document.querySelectorAll(`[data-bind="${id}"]`).forEach(el=>el.textContent=val(id)));}
-fields.forEach(id=>$(id).addEventListener("input",bind)); bind();
-function renderChips(){const c=$("chips");c.innerHTML="";potentials.forEach(p=>{const b=document.createElement("button");b.type="button";b.className="chip "+(selected.includes(p)?"on":"");b.textContent=p;b.onclick=()=>{selected=selected.includes(p)?selected.filter(x=>x!==p):[...selected,p];renderChips();renderTags();};c.appendChild(b);});}
-function renderTags(){const el=$("posterTags");el.innerHTML="";selected.forEach(t=>{const s=document.createElement("span");s.className="tag";s.textContent=t;el.appendChild(s);});}
-renderChips();renderTags();
-function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
-function renderPins(){document.querySelectorAll(".pin").forEach(p=>p.remove());const hero=$("heroBox");pins.forEach(p=>{const pin=document.createElement("div");pin.className="pin "+p.type;pin.style.left=p.x+"%";pin.style.top=p.y+"%";pin.innerHTML='<span class="pinDot"></span><span class="pinLabel">'+esc(p.label)+'</span>';hero.appendChild(pin);});}
-$("heroBox").addEventListener("click",e=>{const r=e.currentTarget.getBoundingClientRect();pins.push({x:(e.clientX-r.left)/r.width*100,y:(e.clientY-r.top)/r.height*100,label:val("pinLabel")||"Pin",type:val("pinType")||"land"});renderPins();});
-$("clearPins").onclick=()=>{pins=[];renderPins();};
-function readFileAsDataURL(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file);});}
-async function setImage(key,file){if(!file)return;const url=await readFileAsDataURL(file);images[key]=url;const thumb=$(key+"Thumb");if(thumb)thumb.src=url;const box=key==="photo1"?$("heroBox"):$(key+"Box");if(box){box.innerHTML="";const im=new Image();im.src=url;im.alt=key;box.appendChild(im);}renderPins();updatePhotoGrid();}
-function updatePhotoGrid(){const grid=$("photoGrid"),count=[images.photo2,images.photo3].filter(Boolean).length;grid.style.display=count?"grid":"none";grid.className="photoGrid "+(count===1?"one":"");$("photo2Box").style.display=images.photo2?"grid":"none";$("photo3Box").style.display=images.photo3?"grid":"none";}
-["photo1","photo2","photo3","qr"].forEach(k=>$(k+"File").addEventListener("change",e=>setImage(k,e.target.files[0])));updatePhotoGrid();
-function fit(){const s=($("poster").parentElement.clientWidth-20)/1080;$("poster").style.transform=`scale(${s})`;$("poster").parentElement.style.height=1350*s+30+"px";}
-window.addEventListener("resize",fit);setTimeout(fit,80);
-function load(src){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(im);im.onerror=rej;im.src=src;});}
-function cover(ctx,img,x,y,w,h){const r=Math.max(w/img.width,h/img.height),nw=img.width*r,nh=img.height*r;ctx.save();ctx.beginPath();ctx.rect(x,y,w,h);ctx.clip();ctx.drawImage(img,x+(w-nw)/2,y+(h-nh)/2,nw,nh);ctx.restore();}
-function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
-function txt(ctx,t,x,y,size,color="#14231a",weight="700",maxW){ctx.fillStyle=color;ctx.font=`${weight} ${size}px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif`;ctx.textBaseline="alphabetic";ctx.fillText(String(t||""),x,y,maxW||9999);}
-function pinDraw(ctx,p,x,y,w,h){const px=x+w*p.x/100,py=y+h*p.y/100;ctx.save();ctx.shadowColor="rgba(0,0,0,.45)";ctx.shadowBlur=8;ctx.shadowOffsetY=3;ctx.fillStyle=p.type==="land"?"#f13b5f":"#2c7be5";ctx.beginPath();ctx.arc(px,py-16,15,0,Math.PI*2);ctx.fill();ctx.lineWidth=4;ctx.strokeStyle="#fff";ctx.stroke();ctx.shadowBlur=0;ctx.fillStyle="rgba(18,61,41,.92)";const labelW=Math.min(320,String(p.label).length*25+34);rr(ctx,px+22,py-49,labelW,38,19);ctx.fill();txt(ctx,p.label,px+39,py-21,24,"#fff","900",labelW-30);ctx.restore();}
-async function exportJpg(){
-  bind();renderTags();renderPins();
-  const c=$("canvas"),ctx=c.getContext("2d");c.width=1080;c.height=1350;
-  ctx.fillStyle="#fff";ctx.fillRect(0,0,1080,1350);
-  ctx.fillStyle="#123d29";ctx.fillRect(0,0,1080,205);
-  txt(ctx,val("title")||"ขายที่ดิน",52,78,56,"#fff","900",630);
-  txt(ctx,val("location")||"",52,132,26,"#fff","500",610);
-  ctx.fillStyle="#d5ad43";rr(ctx,720,48,320,110,24);ctx.fill();
-  txt(ctx,val("priceText")||"-",750,98,44,"#102719","900",260);
-  txt(ctx,val("size")||"",800,142,30,"#102719","900",220);
-  if(images.photo1){cover(ctx,await load(images.photo1),0,205,1080,500);}else{ctx.fillStyle="#d8ddd5";ctx.fillRect(0,205,1080,500);txt(ctx,"รูปเกี่ยวกับที่ดิน 1",405,465,34,"#53645a","800");}
-  pins.forEach(p=>pinDraw(ctx,p,0,205,1080,500));
-  let leftX=38,leftY=731;
-  if(images.photo2||images.photo3){if(images.photo2&&images.photo3){cover(ctx,await load(images.photo2),leftX,leftY,270,170);cover(ctx,await load(images.photo3),leftX+288,leftY,270,170);}else{cover(ctx,await load(images.photo2||images.photo3),leftX,leftY,558,170);}leftY+=194;}
-  ctx.fillStyle="#123d29";rr(ctx,leftX,leftY,560,112,20);ctx.fill();txt(ctx,"เหมาะสำหรับ",leftX+22,leftY+39,28,"#fff","900");
-  let tx=leftX+22,ty=leftY+75;selected.forEach(t=>{const ww=Math.min(230,String(t).length*24+24);ctx.fillStyle="#d5ad43";rr(ctx,tx,ty-30,ww,40,20);ctx.fill();txt(ctx,t,tx+12,ty-3,24,"#102719","900",ww-20);tx+=ww+10;if(tx>520){tx=leftX+22;ty+=46;}});
-  txt(ctx,"จุดเด่นแปลงนี้",622,775,32,"#123d29","900");
-  let y=795;["h1","h2","h3","h4"].forEach(id=>{ctx.fillStyle="#f2f3ef";rr(ctx,622,y,420,56,12);ctx.fill();ctx.fillStyle="#d5ad43";ctx.fillRect(622,y,9,56);txt(ctx,val(id),646,y+37,25,"#14231a","700",370);y+=66;});
-  ctx.fillStyle="#123d29";rr(ctx,622,1105,420,210,22);ctx.fill();ctx.fillStyle="#fff";rr(ctx,644,1132,150,146,14);ctx.fill();
-  if(images.qr){cover(ctx,await load(images.qr),644,1132,150,146);}else{txt(ctx,"QR",700,1212,28,"#123d29","900");}
-  txt(ctx,"ติดต่อเจ้าของขายเอง",815,1162,25,"#fff","800",210);txt(ctx,"โทร "+(val("phone")||"-"),815,1212,24,"#fff","700",210);txt(ctx,"LINE: "+(val("line")||"-"),815,1260,24,"#fff","700",210);
-  txt(ctx,"v0.7",1010,1330,16,"#d8d8d8","700",60);
-  const data=c.toDataURL("image/jpeg",0.94);
-  $("exportImg").src=data;$("openFull").href=data;$("exportResult").style.display="block";$("exportResult").scrollIntoView({behavior:"smooth",block:"start"});
-  const a=document.createElement("a");a.download="landposter-v07-direct-export.jpg";a.href=data;document.body.appendChild(a);a.click();a.remove();
+let drawToken=0;
+
+function renderChips(){
+  const c=$("chips"); c.innerHTML="";
+  potentials.forEach(p=>{
+    const b=document.createElement("button");
+    b.type="button";
+    b.className="chip "+(selected.includes(p)?"on":"");
+    b.textContent=p;
+    b.onclick=()=>{selected=selected.includes(p)?selected.filter(x=>x!==p):[...selected,p];renderChips();scheduleDraw();};
+    c.appendChild(b);
+  });
 }
-$("exportBtn").addEventListener("click",()=>{exportJpg().catch(err=>alert("Export error: "+err.message));});
+renderChips();
+
+function readFileAsDataURL(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file);});}
+function loadImg(src){
+  if(!src)return Promise.resolve(null);
+  if(imageCache.has(src))return imageCache.get(src);
+  const p=new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=src;});
+  imageCache.set(src,p); return p;
+}
+async function setImage(key,file){
+  if(!file)return;
+  const url=await readFileAsDataURL(file);
+  images[key]=url;
+  const thumb=$(key+"Thumb"); if(thumb)thumb.src=url;
+  await loadImg(url).catch(()=>null);
+  scheduleDraw();
+}
+["photo1","photo2","photo3","qr"].forEach(k=>$(k+"File").addEventListener("change",e=>setImage(k,e.target.files[0])));
+fields.forEach(id=>$(id).addEventListener("input",scheduleDraw));
+
+function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+function text(ctx,t,x,y,size,color="#14231a",weight="700",maxW=9999,align="left"){
+  ctx.save();
+  ctx.fillStyle=color; ctx.font=`${weight} ${size}px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif`; ctx.textBaseline="alphabetic"; ctx.textAlign=align;
+  ctx.fillText(String(t||""),x,y,maxW);
+  ctx.restore();
+}
+function cover(ctx,img,x,y,w,h){
+  if(!img)return;
+  const r=Math.max(w/img.width,h/img.height),nw=img.width*r,nh=img.height*r;
+  ctx.save(); ctx.beginPath(); ctx.rect(x,y,w,h); ctx.clip(); ctx.drawImage(img,x+(w-nw)/2,y+(h-nh)/2,nw,nh); ctx.restore();
+}
+function contain(ctx,img,x,y,w,h){
+  if(!img)return;
+  const r=Math.min(w/img.width,h/img.height),nw=img.width*r,nh=img.height*r;
+  ctx.save(); ctx.beginPath(); ctx.rect(x,y,w,h); ctx.clip(); ctx.drawImage(img,x+(w-nw)/2,y+(h-nh)/2,nw,nh); ctx.restore();
+}
+function roundedCover(ctx,img,x,y,w,h,r){ctx.save(); rr(ctx,x,y,w,h,r); ctx.clip(); cover(ctx,img,x,y,w,h); ctx.restore();}
+function roundedFill(ctx,x,y,w,h,r,fill){ctx.save();ctx.fillStyle=fill;rr(ctx,x,y,w,h,r);ctx.fill();ctx.restore();}
+
+function drawPin(ctx,p){
+  const px=HERO.x+HERO.w*p.x/100, py=HERO.y+HERO.h*p.y/100;
+  ctx.save();
+  ctx.shadowColor="rgba(0,0,0,.45)"; ctx.shadowBlur=8; ctx.shadowOffsetY=3;
+  ctx.fillStyle=p.type==="place"?"#2c7be5":"#f13b5f";
+  ctx.beginPath(); ctx.arc(px,py-16,15,0,Math.PI*2); ctx.fill();
+  ctx.lineWidth=4; ctx.strokeStyle="#fff"; ctx.stroke();
+  ctx.shadowBlur=0;
+  const label=String(p.label||"Pin");
+  const labelW=Math.min(320,ctx.measureText(label).width+42);
+  ctx.fillStyle="rgba(18,61,41,.92)"; rr(ctx,px+22,py-49,labelW,38,19); ctx.fill();
+  text(ctx,label,px+39,py-21,24,"#fff","900",labelW-36);
+  ctx.restore();
+}
+
+async function drawPoster(canvas){
+  const token=++drawToken;
+  const ctx=canvas.getContext("2d");
+  const [p1,p2,p3,qr]=await Promise.all([loadImg(images.photo1),loadImg(images.photo2),loadImg(images.photo3),loadImg(images.qr)]).catch(()=>[]);
+  if(token!==drawToken)return;
+
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle="#fff"; ctx.fillRect(0,0,W,H);
+
+  // Header
+  ctx.fillStyle="#123d29"; ctx.fillRect(0,0,W,205);
+  text(ctx,val("title")||"ขายที่ดิน",52,78,56,"#fff","900",630);
+  text(ctx,val("location")||"",52,132,26,"#fff","500",610);
+  roundedFill(ctx,720,48,320,110,24,"#d5ad43");
+  text(ctx,val("priceText")||"-",880,98,44,"#102719","900",280,"center");
+  text(ctx,val("size")||"",880,142,30,"#102719","900",260,"center");
+
+  // Main image
+  if(p1){cover(ctx,p1,HERO.x,HERO.y,HERO.w,HERO.h);} else {ctx.fillStyle="#d8ddd5";ctx.fillRect(HERO.x,HERO.y,HERO.w,HERO.h);text(ctx,"รูปเกี่ยวกับที่ดิน 1",W/2,HERO.y+HERO.h/2+12,34,"#53645a","800",500,"center");}
+  pins.forEach(p=>drawPin(ctx,p));
+
+  // Lower layout
+  let leftX=38,leftY=731;
+  const rightX=622;
+  if(p2||p3){
+    if(p2&&p3){roundedCover(ctx,p2,leftX,leftY,270,170,18);roundedCover(ctx,p3,leftX+288,leftY,270,170,18);} else {roundedCover(ctx,p2||p3,leftX,leftY,558,170,18);}
+    leftY+=194;
+  }
+
+  // Potential box
+  roundedFill(ctx,leftX,leftY,560,112,20,"#123d29");
+  text(ctx,"เหมาะสำหรับ",leftX+22,leftY+39,28,"#fff","900");
+  let tx=leftX+22,ty=leftY+75;
+  selected.forEach(t=>{
+    ctx.font='900 24px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
+    const ww=Math.min(230,ctx.measureText(t).width+30);
+    if(tx+ww>leftX+540){tx=leftX+22;ty+=46;}
+    if(ty<leftY+116){roundedFill(ctx,tx,ty-30,ww,40,20,"#d5ad43");text(ctx,t,tx+12,ty-3,24,"#102719","900",ww-20);}
+    tx+=ww+10;
+  });
+
+  // Highlights
+  text(ctx,"จุดเด่นแปลงนี้",rightX,775,32,"#123d29","900");
+  let y=795;
+  ["h1","h2","h3","h4"].forEach(id=>{
+    roundedFill(ctx,rightX,y,420,56,12,"#f2f3ef");
+    ctx.fillStyle="#d5ad43"; ctx.fillRect(rightX,y,9,56);
+    text(ctx,val(id),rightX+24,y+37,25,"#14231a","700",370);
+    y+=66;
+  });
+
+  // Contact
+  roundedFill(ctx,rightX,1105,420,210,22,"#123d29");
+  roundedFill(ctx,644,1132,150,146,14,"#fff");
+  if(qr){contain(ctx,qr,652,1140,134,130);} else {text(ctx,"QR",719,1212,28,"#123d29","900",120,"center");}
+  text(ctx,"ติดต่อเจ้าของขายเอง",815,1162,25,"#fff","800",210);
+  text(ctx,"โทร "+(val("phone")||"-"),815,1212,24,"#fff","700",210);
+  text(ctx,"LINE: "+(val("line")||"-"),815,1260,24,"#fff","700",210);
+  text(ctx,"v0.8",1010,1330,16,"#d8d8d8","700",60);
+}
+function scheduleDraw(){window.requestAnimationFrame(()=>drawPoster($("previewCanvas")));}
+
+$("previewCanvas").addEventListener("click",e=>{
+  const rect=e.currentTarget.getBoundingClientRect();
+  const x=(e.clientX-rect.left)/rect.width*W;
+  const y=(e.clientY-rect.top)/rect.height*H;
+  if(x<HeroSafe().x||x>HeroSafe().x+HeroSafe().w||y<HeroSafe().y||y>HeroSafe().y+HeroSafe().h){return;}
+  pins.push({x:(x-HERO.x)/HERO.w*100,y:(y-HERO.y)/HERO.h*100,label:val("pinLabel")||"Pin",type:val("pinType")||"land"});
+  scheduleDraw();
+});
+function HeroSafe(){return HERO;}
+$("clearPins").onclick=()=>{pins=[];scheduleDraw();};
+
+$("exportBtn").addEventListener("click",async()=>{
+  const canvas=$("previewCanvas");
+  await drawPoster(canvas);
+  const data=canvas.toDataURL("image/jpeg",0.94);
+  $("exportImg").src=data; $("openFull").href=data; $("exportResult").style.display="block";
+  const a=document.createElement("a"); a.download="landposter-v08-single-canvas.jpg"; a.href=data; document.body.appendChild(a); a.click(); a.remove();
+  $("exportResult").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+scheduleDraw();
 })();
 </script>
 </body>
