@@ -1,80 +1,85 @@
 <!doctype html>
 <html lang="th">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>LandPoster Mobile</title>
 <style>
-*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#e9e9e4;color:#14231a}
-.app{padding:12px;max-width:720px;margin:auto}.card{background:white;border-radius:18px;padding:14px;margin:12px 0;box-shadow:0 4px 18px #0001}
-h1{font-size:24px;margin:4px 0} h2{font-size:17px;margin:0 0 10px}.small{color:#667067;font-size:13px}
-label{display:block;margin:10px 0;font-size:13px;color:#445047}input{width:100%;padding:11px;border:1px solid #ccd1c8;border-radius:12px;font-size:16px;background:#fff}
-.file input{padding:8px}.thumb{width:100%;height:92px;object-fit:cover;border-radius:12px;margin-top:8px;background:#ddd}
-button{width:100%;border:0;border-radius:16px;padding:15px;font-size:18px;font-weight:800;background:#123d29;color:#fff;margin:8px 0}
-.previewScroll{overflow:auto;background:#dfe2dc;border-radius:18px;padding:10px}
-.poster{width:1080px;height:1350px;background:#fff;transform-origin:top left;box-shadow:0 8px 28px #0002}
-.header{height:180px;background:#123d29;color:white;display:flex;justify-content:space-between;align-items:center;padding:42px 50px}
-.header h1{font-size:58px;line-height:1.05;margin:0}.header p{font-size:28px;margin:10px 0 0;opacity:.9}
-.price{background:#e6c36a;color:#102719;border-radius:24px;padding:22px 30px;text-align:right;min-width:310px}.price b{font-size:44px;display:block}.price span{font-size:28px}
-.img{background:#d8ddd5;display:grid;place-items:center;overflow:hidden;color:#526056;font-weight:800}.img img{width:100%;height:100%;object-fit:cover}
-.hero{height:530px}.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;padding:28px 38px 38px}
-.grid h2{font-size:38px;color:#123d29;margin:0 0 18px}ul{margin:0 0 24px;padding:0;list-style:none}
-li{font-size:29px;margin:12px 0;padding:16px 20px;background:#f1f3ee;border-left:10px solid #e6c36a;border-radius:12px}
+*{box-sizing:border-box}
+body{margin:0;background:#e9e7df;color:#143323;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:14px}
+.card{background:#fff;border-radius:18px;padding:14px;margin:12px 0;box-shadow:0 5px 18px rgba(0,0,0,.08)}
+h1{font-size:25px;margin:2px 0 4px}h2{font-size:17px;margin:0 0 10px}.hint{font-size:13px;color:#617064}
+label{display:block;margin:10px 0;font-size:13px;color:#405044}
+input{width:100%;font-size:16px;border:1px solid #cfd5cc;border-radius:12px;padding:11px;background:#fff}
+input[type=file]{padding:8px}.thumb{width:100%;height:90px;object-fit:cover;border-radius:12px;margin-top:8px;background:#ddd}
+button{width:100%;border:0;border-radius:16px;padding:15px;margin:8px 0;background:#123d29;color:#fff;font-size:18px;font-weight:800}
+.preview{overflow:auto;background:#d9ddd6;border-radius:18px;padding:10px}
+.poster{width:1080px;height:1350px;background:white;transform-origin:top left;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.top{height:190px;background:#123d29;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:44px 52px}
+.top h1{font-size:58px;line-height:1.05;margin:0}.top p{font-size:27px;margin:10px 0 0;opacity:.9}
+.price{background:#d5ad43;color:#102719;border-radius:24px;padding:22px 30px;text-align:right;min-width:310px}
+.price b{display:block;font-size:44px}.price span{font-size:28px}
+.img{background:#d8ddd5;display:grid;place-items:center;overflow:hidden;color:#53645a;font-weight:800}.img img{width:100%;height:100%;object-fit:cover}
+.hero{height:520px}.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;padding:30px 38px 38px}
+.grid h2{font-size:38px;color:#123d29;margin:0 0 18px}
+ul{margin:0 0 24px;padding:0;list-style:none}
+li{font-size:29px;margin:12px 0;padding:15px 18px;background:#f2f3ef;border-left:10px solid #d5ad43;border-radius:12px}
 .street{height:255px;border-radius:22px}.map{height:360px;border-radius:22px}
 .contact{height:200px;margin-top:24px;border-radius:22px;background:#123d29;color:white;display:grid;grid-template-columns:170px 1fr;gap:22px;padding:22px;align-items:center}
-.qr{width:170px;height:156px;border-radius:14px;background:white;color:#123d29}.contact strong{font-size:28px}.contact p{font-size:28px;margin:10px 0}
-#canvas{display:none}
+.qr{width:170px;height:156px;border-radius:14px;background:white;color:#123d29}.contact strong{font-size:28px}.contact p{font-size:27px;margin:10px 0}
+canvas{display:none}
 </style>
 </head>
 <body>
-<div class="app">
+<div class="wrap">
   <div class="card">
     <h1>LandPoster Mobile</h1>
-    <div class="small">เปิดในมือถือได้เลย ใช้รูปจริงจากเครื่อง ไม่ใช้ AI วาดภาพ</div>
+    <div class="hint">ทำโปสเตอร์ขายที่ดินจากมือถือ ใช้รูปจริง 100%</div>
   </div>
 
   <div class="card">
     <h2>1. ใส่รูป</h2>
-    <label class="file">ภาพหลัก / โดรน <input id="heroFile" type="file" accept="image/*"><img id="heroThumb" class="thumb"></label>
-    <label class="file">ภาพทำเล / Google Earth <input id="mapFile" type="file" accept="image/*"><img id="mapThumb" class="thumb"></label>
-    <label class="file">ภาพหน้าที่ดิน <input id="streetFile" type="file" accept="image/*"><img id="streetThumb" class="thumb"></label>
-    <label class="file">QR Code <input id="qrFile" type="file" accept="image/*"><img id="qrThumb" class="thumb"></label>
+    <label>ภาพหลัก / โดรน / Google Earth <input id="heroFile" type="file" accept="image/*"><img id="heroThumb" class="thumb"></label>
+    <label>ภาพทำเล / แผนที่ <input id="mapFile" type="file" accept="image/*"><img id="mapThumb" class="thumb"></label>
+    <label>ภาพหน้าที่ดิน / ทางเข้า <input id="streetFile" type="file" accept="image/*"><img id="streetThumb" class="thumb"></label>
+    <label>QR Code <input id="qrFile" type="file" accept="image/*"><img id="qrThumb" class="thumb"></label>
   </div>
 
   <div class="card">
     <h2>2. ใส่ข้อมูล</h2>
     <label>หัวข้อ <input id="title" value="ขายที่ดินลานสกา"></label>
     <label>พื้นที่ <input id="size" value="162.7 ตร.ว."></label>
-    <label>ราคา <input id="price" value="1.2 ล้านบาท"></label>
-    <label>ทำเล <input id="location" value="ต.ขุนทะเล อ.ลานสกา จ.นครศรีธรรมราช"></label>
-    <label>จุดเด่น 1 <input id="h1" value="ติดถนน / เดินทางสะดวก"></label>
-    <label>จุดเด่น 2 <input id="h2" value="ใกล้ สภ.อ.ลานสกา"></label>
-    <label>จุดเด่น 3 <input id="h3" value="เหมาะสร้างบ้าน / ทำการค้า"></label>
-    <label>จุดเด่น 4 <input id="h4" value="ไฟฟ้า ประปา ถนนพร้อม"></label>
+    <label>ราคา <input id="priceText" value="1.2 ล้านบาท"></label>
+    <label>ทำเล <input id="location" value="ท้ายซอย ข้าง สภ.อ.ลานสกา"></label>
+    <label>จุดเด่น 1 <input id="h1" value="ใกล้ สภ.อ.ลานสกา"></label>
+    <label>จุดเด่น 2 <input id="h2" value="ติดถนน นศ.3013"></label>
+    <label>จุดเด่น 3 <input id="h3" value="เหมาะสร้างบ้านพักอาศัย"></label>
+    <label>จุดเด่น 4 <input id="h4" value="เจ้าของขายเอง พร้อมโอน"></label>
     <label>โทร <input id="phone" value="0641873579"></label>
     <label>LINE <input id="line" value="manamanamana30"></label>
-    <button id="downloadBtn">Export JPG</button>
+    <button id="exportBtn">Export JPG</button>
   </div>
 
   <div class="card">
     <h2>Preview</h2>
-    <div class="previewScroll">
+    <div class="preview">
       <div id="poster" class="poster">
-        <div class="header">
+        <div class="top">
           <div><h1 data-bind="title"></h1><p data-bind="location"></p></div>
-          <div class="price"><b data-bind="price"></b><span data-bind="size"></span></div>
+          <div class="price"><b data-bind="priceText"></b><span data-bind="size"></span></div>
         </div>
-        <div class="img hero" id="heroBox">ภาพหลัก / โดรน</div>
+        <div id="heroBox" class="img hero">ภาพหลัก / โดรน</div>
         <div class="grid">
           <div>
             <h2>จุดเด่นแปลงนี้</h2>
             <ul><li data-bind="h1"></li><li data-bind="h2"></li><li data-bind="h3"></li><li data-bind="h4"></li></ul>
-            <div class="img street" id="streetBox">ภาพหน้าที่ดิน</div>
+            <div id="streetBox" class="img street">ภาพหน้าที่ดิน / ทางเข้า</div>
           </div>
           <div>
-            <div class="img map" id="mapBox">ภาพทำเล / Google Earth</div>
+            <div id="mapBox" class="img map">ภาพทำเล / แผนที่</div>
             <div class="contact">
-              <div class="img qr" id="qrBox">QR</div>
+              <div id="qrBox" class="img qr">QR</div>
               <div><strong>ติดต่อเจ้าของขายเอง</strong><p>โทร <span data-bind="phone"></span></p><p>LINE: <span data-bind="line"></span></p></div>
             </div>
           </div>
@@ -84,48 +89,35 @@ li{font-size:29px;margin:12px 0;padding:16px 20px;background:#f1f3ee;border-left
   </div>
 </div>
 <canvas id="canvas" width="1080" height="1350"></canvas>
-
 <script>
-const ids=["title","size","price","location","h1","h2","h3","h4","phone","line"];
-const imgs={hero:null,map:null,street:null,qr:null};
-function bind(){ids.forEach(id=>document.querySelectorAll(`[data-bind="${id}"]`).forEach(el=>el.textContent=document.getElementById(id).value));}
-ids.forEach(id=>document.getElementById(id).addEventListener("input",bind)); bind();
-
-function readFile(key, file){
-  if(!file)return;
-  const url=URL.createObjectURL(file); imgs[key]=url;
-  document.getElementById(key+"Thumb").src=url;
-  const box=document.getElementById(key+"Box"); box.innerHTML=""; const im=new Image(); im.src=url; box.appendChild(im);
+const fields=["title","size","priceText","location","h1","h2","h3","h4","phone","line"];
+const images={hero:null,map:null,street:null,qr:null};
+function bind(){fields.forEach(id=>document.querySelectorAll(`[data-bind="${id}"]`).forEach(el=>el.textContent=document.getElementById(id).value));}
+fields.forEach(id=>document.getElementById(id).addEventListener("input",bind));bind();
+function setImage(key,file){if(!file)return;const url=URL.createObjectURL(file);images[key]=url;document.getElementById(key+"Thumb").src=url;const box=document.getElementById(key+"Box");box.innerHTML="";const im=new Image();im.src=url;box.appendChild(im);}
+["hero","map","street","qr"].forEach(k=>document.getElementById(k+"File").addEventListener("change",e=>setImage(k,e.target.files[0])));
+function fit(){const s=(document.querySelector(".preview").clientWidth-20)/1080;const p=document.querySelector(".poster");p.style.transform=`scale(${s})`;document.querySelector(".preview").style.height=(1350*s+30)+"px";}
+window.addEventListener("resize",fit);setTimeout(fit,80);
+function load(src){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(im);im.onerror=rej;im.src=src;});}
+function cover(ctx,img,x,y,w,h){const r=Math.max(w/img.width,h/img.height),nw=img.width*r,nh=img.height*r;ctx.drawImage(img,x+(w-nw)/2,y+(h-nh)/2,nw,nh);}
+function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+function txt(ctx,t,x,y,size,color="#14231a",weight="700"){ctx.fillStyle=color;ctx.font=`${weight} ${size}px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif`;ctx.fillText(t,x,y);}
+async function exportJpg(){
+ const c=document.getElementById("canvas"),ctx=c.getContext("2d");ctx.fillStyle="#fff";ctx.fillRect(0,0,1080,1350);
+ ctx.fillStyle="#123d29";ctx.fillRect(0,0,1080,190);
+ txt(ctx,title.value,52,76,58,"#fff","900");txt(ctx,location.value,52,130,27,"#fff","500");
+ ctx.fillStyle="#d5ad43";rr(ctx,730,45,300,104,24);ctx.fill();txt(ctx,priceText.value,760,92,40,"#102719","900");txt(ctx,size.value,800,135,28,"#102719","800");
+ if(images.hero)cover(ctx,await load(images.hero),0,190,1080,520);else{ctx.fillStyle="#d8ddd5";ctx.fillRect(0,190,1080,520);txt(ctx,"ภาพหลัก / โดรน",420,455,34,"#53645a","800")}
+ txt(ctx,"จุดเด่นแปลงนี้",38,782,38,"#123d29","900");
+ let y=815;[h1.value,h2.value,h3.value,h4.value].forEach(v=>{ctx.fillStyle="#f2f3ef";rr(ctx,38,y,560,62,12);ctx.fill();ctx.fillStyle="#d5ad43";ctx.fillRect(38,y,10,62);txt(ctx,v,68,y+41,29,"#14231a","700");y+=78;});
+ if(images.street)cover(ctx,await load(images.street),38,1122,560,190);else{ctx.fillStyle="#d8ddd5";rr(ctx,38,1122,560,190,22);ctx.fill();txt(ctx,"ภาพหน้าที่ดิน / ทางเข้า",190,1228,26,"#53645a","800")}
+ if(images.map)cover(ctx,await load(images.map),622,738,420,360);else{ctx.fillStyle="#d8ddd5";rr(ctx,622,738,420,360,22);ctx.fill();txt(ctx,"ภาพทำเล / แผนที่",700,930,26,"#53645a","800")}
+ ctx.fillStyle="#123d29";rr(ctx,622,1122,420,190,22);ctx.fill();ctx.fillStyle="#fff";rr(ctx,644,1144,150,146,14);ctx.fill();
+ if(images.qr)cover(ctx,await load(images.qr),644,1144,150,146);else txt(ctx,"QR",700,1225,28,"#123d29","900");
+ txt(ctx,"ติดต่อเจ้าของขายเอง",815,1168,25,"#fff","800");txt(ctx,"โทร "+phone.value,815,1215,24,"#fff","700");txt(ctx,"LINE: "+line.value,815,1260,24,"#fff","700");
+ const a=document.createElement("a");a.download="landposter.jpg";a.href=c.toDataURL("image/jpeg",0.92);a.click();
 }
-["hero","map","street","qr"].forEach(k=>document.getElementById(k+"File").addEventListener("change",e=>readFile(k,e.target.files[0])));
-
-function coverDraw(ctx,img,x,y,w,h){
-  const r=Math.max(w/img.width,h/img.height), nw=img.width*r, nh=img.height*r;
-  ctx.drawImage(img,x+(w-nw)/2,y+(h-nh)/2,nw,nh);
-}
-function loadImage(src){return new Promise((res,rej)=>{const im=new Image(); im.onload=()=>res(im); im.onerror=rej; im.src=src;});}
-function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
-function text(ctx,t,x,y,size,color="#14231a",weight="700"){ctx.fillStyle=color;ctx.font=`${weight} ${size}px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif`;ctx.fillText(t,x,y);}
-async function exportJPG(){
-  const c=document.getElementById("canvas"),ctx=c.getContext("2d"); ctx.fillStyle="#fff";ctx.fillRect(0,0,1080,1350);
-  ctx.fillStyle="#123d29";ctx.fillRect(0,0,1080,180);
-  text(ctx,title.value,50,72,58,"#fff","800"); text(ctx,location.value,50,125,28,"#fff","500");
-  ctx.fillStyle="#e6c36a";roundRect(ctx,730,42,300,100,24);ctx.fill(); text(ctx,price.value,760,88,40,"#102719","900"); text(ctx,size.value,800,130,28,"#102719","700");
-  if(imgs.hero)coverDraw(ctx,await loadImage(imgs.hero),0,180,1080,530); else {ctx.fillStyle="#d8ddd5";ctx.fillRect(0,180,1080,530); text(ctx,"ภาพหลัก / โดรน",420,450,34,"#526056","800")}
-  text(ctx,"จุดเด่นแปลงนี้",38,782,38,"#123d29","900");
-  const hs=[h1.value,h2.value,h3.value,h4.value]; let y=815; hs.forEach(v=>{ctx.fillStyle="#f1f3ee";roundRect(ctx,38,y,560,62,12);ctx.fill();ctx.fillStyle="#e6c36a";ctx.fillRect(38,y,10,62);text(ctx,v,68,y+41,29,"#14231a","700");y+=78;});
-  if(imgs.street)coverDraw(ctx,await loadImage(imgs.street),38,1122,560,190); else {ctx.fillStyle="#d8ddd5";roundRect(ctx,38,1122,560,190,22);ctx.fill();text(ctx,"ภาพหน้าที่ดิน",235,1228,28,"#526056","800")}
-  if(imgs.map)coverDraw(ctx,await loadImage(imgs.map),622,738,420,360); else {ctx.fillStyle="#d8ddd5";roundRect(ctx,622,738,420,360,22);ctx.fill();text(ctx,"ภาพทำเล / Google Earth",660,930,26,"#526056","800")}
-  ctx.fillStyle="#123d29";roundRect(ctx,622,1122,420,190,22);ctx.fill();
-  ctx.fillStyle="#fff";roundRect(ctx,644,1144,150,146,14);ctx.fill();
-  if(imgs.qr)coverDraw(ctx,await loadImage(imgs.qr),644,1144,150,146); else text(ctx,"QR",700,1225,28,"#123d29","900");
-  text(ctx,"ติดต่อเจ้าของขายเอง",815,1168,25,"#fff","800"); text(ctx,"โทร "+phone.value,815,1215,24,"#fff","700"); text(ctx,"LINE: "+line.value,815,1260,24,"#fff","700");
-  const a=document.createElement("a"); a.download="landposter-mobile.jpg"; a.href=c.toDataURL("image/jpeg",0.92); a.click();
-}
-downloadBtn.addEventListener("click",exportJPG);
-
-function fitPreview(){document.querySelector(".poster").style.transform=`scale(${(document.querySelector(".previewScroll").clientWidth-20)/1080})`;document.querySelector(".previewScroll").style.height=(1350*((document.querySelector(".previewScroll").clientWidth-20)/1080)+30)+"px";}
-window.addEventListener("resize",fitPreview); setTimeout(fitPreview,50);
+document.getElementById("exportBtn").addEventListener("click",exportJpg);
 </script>
 </body>
 </html>
