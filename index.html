@@ -2,14 +2,14 @@
 <html lang="th">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LandPoster Mobile v0.3</title>
+<title>LandPoster Mobile v0.4 Fixed</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#e9e7df;color:#143323;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:760px;margin:auto;padding:14px}.card{background:#fff;border-radius:18px;padding:14px;margin:12px 0;box-shadow:0 5px 18px #0001}h1{font-size:25px;margin:2px 0 4px}h2{font-size:17px;margin:0 0 10px}.hint{font-size:13px;color:#617064;line-height:1.35}label{display:block;margin:10px 0;font-size:13px;color:#405044}input,select{width:100%;font-size:16px;border:1px solid #cfd5cc;border-radius:12px;padding:11px;background:#fff}input[type=file]{padding:8px}.thumb{width:100%;height:88px;object-fit:cover;border-radius:12px;margin-top:8px;background:#ddd}button{width:100%;border:0;border-radius:16px;padding:15px;margin:8px 0;background:#123d29;color:#fff;font-size:18px;font-weight:800}button.secondary{background:#d5ad43;color:#102719}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid #cfd5cc;background:#f5f5f2;border-radius:999px;padding:9px 12px;font-size:14px;color:#26352c;width:auto;margin:0}.chip.on{background:#123d29;color:white}.preview{overflow:auto;background:#d9ddd6;border-radius:18px;padding:10px}.poster{width:1080px;height:1350px;background:white;transform-origin:top left;box-shadow:0 10px 30px #0003}.top{height:205px;background:#123d29;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:42px 52px}.top h1{font-size:56px;line-height:1.04;margin:0}.top p{font-size:26px;margin:10px 0 0;opacity:.9}.price{background:#d5ad43;color:#102719;border-radius:24px;padding:22px 30px;text-align:right;min-width:330px}.price b{display:block;font-size:46px}.price span{font-size:30px;font-weight:800}.img{background:#d8ddd5;display:grid;place-items:center;overflow:hidden;color:#53645a;font-weight:800;position:relative}.img img{width:100%;height:100%;object-fit:cover;object-position:center}.hero{height:500px}.pin{position:absolute;transform:translate(-50%,-100%);display:flex;align-items:center;gap:8px;z-index:5;filter:drop-shadow(0 3px 6px rgba(0,0,0,.45))}.pinDot{width:30px;height:30px;border-radius:999px;background:#f13b5f;border:4px solid white}.pin.place .pinDot{background:#2c7be5}.pinLabel{background:rgba(18,61,41,.92);color:white;border-radius:999px;padding:9px 14px;font-size:24px;white-space:nowrap;font-weight:900}.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;padding:26px 38px 38px}.grid h2{font-size:32px;color:#123d29;margin:0 0 12px}.photoGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}.photoGrid.one{grid-template-columns:1fr}.photo2,.photo3{height:170px;border-radius:18px}ul{margin:0 0 14px;padding:0;list-style:none}li{font-size:25px;margin:9px 0;padding:12px 15px;background:#f2f3ef;border-left:9px solid #d5ad43;border-radius:12px}.potential{background:#123d29;color:white;border-radius:20px;padding:16px;margin-bottom:14px}.potential h3{font-size:26px;margin:0 0 10px}.tags{display:flex;flex-wrap:wrap;gap:8px}.tag{font-size:22px;background:#d5ad43;color:#102719;border-radius:999px;padding:8px 12px;font-weight:900}.contact{height:210px;margin-top:24px;border-radius:22px;background:#123d29;color:white;display:grid;grid-template-columns:160px 1fr;gap:20px;padding:20px;align-items:center}.qr{width:160px;height:148px;border-radius:14px;background:white;color:#123d29}.contact strong{font-size:26px}.contact p{font-size:25px;margin:10px 0}canvas{display:none}
+*{box-sizing:border-box}body{margin:0;background:#e9e7df;color:#143323;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:760px;margin:auto;padding:14px}.card{background:#fff;border-radius:18px;padding:14px;margin:12px 0;box-shadow:0 5px 18px #0001}h1{font-size:25px;margin:2px 0 4px}h2{font-size:17px;margin:0 0 10px}.hint{font-size:13px;color:#617064;line-height:1.35}label{display:block;margin:10px 0;font-size:13px;color:#405044}input,select{width:100%;font-size:16px;border:1px solid #cfd5cc;border-radius:12px;padding:11px;background:#fff}input[type=file]{padding:8px}.thumb{width:100%;height:88px;object-fit:cover;border-radius:12px;margin-top:8px;background:#ddd}button{width:100%;border:0;border-radius:16px;padding:15px;margin:8px 0;background:#123d29;color:#fff;font-size:18px;font-weight:800}button.secondary{background:#d5ad43;color:#102719}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid #cfd5cc;background:#f5f5f2;border-radius:999px;padding:9px 12px;font-size:14px;color:#26352c;width:auto;margin:0}.chip.on{background:#123d29;color:white}.preview{overflow:auto;background:#d9ddd6;border-radius:18px;padding:10px}.poster{width:1080px;height:1350px;background:white;transform-origin:top left;box-shadow:0 10px 30px #0003}.top{height:205px;background:#123d29;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:42px 52px}.top h1{font-size:56px;line-height:1.04;margin:0}.top p{font-size:26px;margin:10px 0 0;opacity:.9}.price{background:#d5ad43;color:#102719;border-radius:24px;padding:22px 30px;text-align:right;min-width:330px}.price b{display:block;font-size:46px}.price span{font-size:30px;font-weight:800}.img{background:#d8ddd5;display:grid;place-items:center;overflow:hidden;color:#53645a;font-weight:800;position:relative}.img img{width:100%;height:100%;object-fit:cover;object-position:center}.hero{height:500px;cursor:crosshair}.pin{position:absolute;transform:translate(-50%,-100%);display:flex;align-items:center;gap:8px;z-index:5;filter:drop-shadow(0 3px 6px rgba(0,0,0,.45))}.pinDot{width:30px;height:30px;border-radius:999px;background:#f13b5f;border:4px solid white}.pin.place .pinDot{background:#2c7be5}.pinLabel{background:rgba(18,61,41,.92);color:white;border-radius:999px;padding:9px 14px;font-size:24px;white-space:nowrap;font-weight:900}.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;padding:26px 38px 38px}.grid h2{font-size:32px;color:#123d29;margin:0 0 12px}.photoGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}.photoGrid.one{grid-template-columns:1fr}.photo2,.photo3{height:170px;border-radius:18px}ul{margin:0 0 14px;padding:0;list-style:none}li{font-size:25px;margin:9px 0;padding:12px 15px;background:#f2f3ef;border-left:9px solid #d5ad43;border-radius:12px}.potential{background:#123d29;color:white;border-radius:20px;padding:16px;margin-bottom:14px}.potential h3{font-size:26px;margin:0 0 10px}.tags{display:flex;flex-wrap:wrap;gap:8px}.tag{font-size:22px;background:#d5ad43;color:#102719;border-radius:999px;padding:8px 12px;font-weight:900}.contact{height:210px;margin-top:24px;border-radius:22px;background:#123d29;color:white;display:grid;grid-template-columns:160px 1fr;gap:20px;padding:20px;align-items:center}.qr{width:160px;height:148px;border-radius:14px;background:white;color:#123d29}.contact strong{font-size:26px}.contact p{font-size:25px;margin:10px 0}canvas{display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
-<div class="card"><h1>LandPoster Mobile v0.3</h1><div class="hint">อัปโหลดรูปเกี่ยวกับที่ดินได้ 1–3 รูป ไม่ต้องกำหนดประเภท รูปแรกเด่นสุด รูป 2–3 ลดหลั่นลงมา</div></div>
+<div class="card"><h1>LandPoster Mobile v0.4 Fixed</h1><div class="hint">อัปโหลดรูปเกี่ยวกับที่ดินได้ 1–3 รูป ไม่ต้องกำหนดประเภท รูปแรกเด่นสุด รูป 2–3 ลดหลั่นลงมา</div></div>
 <div class="card"><h2>1. รูปเกี่ยวกับที่ดิน</h2><div class="hint">ใส่แค่รูปเดียวก็ได้ ไม่บังคับครบ 3 รูป</div>
 <label>รูปที่ 1 / รูปหลัก <input id="photo1File" type="file" accept="image/*"><img id="photo1Thumb" class="thumb"></label>
 <label>รูปที่ 2 <input id="photo2File" type="file" accept="image/*"><img id="photo2Thumb" class="thumb"></label>
@@ -29,17 +29,79 @@
 </div></div></div>
 </div><canvas id="canvas" width="1080" height="1350"></canvas>
 <script>
-const fields=["title","size","priceText","location","h1","h2","h3","h4","phone","line"],images={photo1:null,photo2:null,photo3:null,qr:null},potentials=["🏡 บ้านพัก","☕ คาเฟ่","🏪 ร้านค้า","🏢 สำนักงาน","📈 ลงทุน","🌳 สวน"];let selected=["🏡 บ้านพัก","☕ คาเฟ่","🏪 ร้านค้า"],pins=[];
+const $=id=>document.getElementById(id);const val=id=>($(id)?.value||"").trim();const fields=["title","size","priceText","location","h1","h2","h3","h4","phone","line"],images={photo1:null,photo2:null,photo3:null,qr:null},potentials=["🏡 บ้านพัก","☕ คาเฟ่","🏪 ร้านค้า","🏢 สำนักงาน","📈 ลงทุน","🌳 สวน"];let selected=["🏡 บ้านพัก","☕ คาเฟ่","🏪 ร้านค้า"],pins=[];
 function bind(){fields.forEach(id=>document.querySelectorAll(`[data-bind="${id}"]`).forEach(el=>el.textContent=document.getElementById(id).value))}fields.forEach(id=>document.getElementById(id).addEventListener("input",bind));bind();
 function renderChips(){const c=document.getElementById("chips");c.innerHTML="";potentials.forEach(p=>{const b=document.createElement("button");b.type="button";b.className="chip "+(selected.includes(p)?"on":"");b.textContent=p;b.onclick=()=>{selected=selected.includes(p)?selected.filter(x=>x!==p):[...selected,p];renderChips();renderTags()};c.appendChild(b)})}
 function renderTags(){const el=document.getElementById("posterTags");el.innerHTML="";selected.forEach(t=>{const s=document.createElement("span");s.className="tag";s.textContent=t;el.appendChild(s)})}renderChips();renderTags();
 function renderPins(){document.querySelectorAll(".pin").forEach(p=>p.remove());const hero=document.getElementById("heroBox");pins.forEach(p=>{const pin=document.createElement("div");pin.className="pin "+p.type;pin.style.left=p.x+"%";pin.style.top=p.y+"%";pin.innerHTML='<span class="pinDot"></span><span class="pinLabel">'+p.label+"</span>";hero.appendChild(pin)})}
 document.getElementById("heroBox").addEventListener("click",e=>{const r=e.currentTarget.getBoundingClientRect();pins.push({x:(e.clientX-r.left)/r.width*100,y:(e.clientY-r.top)/r.height*100,label:document.getElementById("pinLabel").value||"Pin",type:document.getElementById("pinType").value});renderPins()});document.getElementById("clearPins").onclick=()=>{pins=[];renderPins()};
-function setImage(key,file){if(!file)return;const url=URL.createObjectURL(file);images[key]=url;document.getElementById(key+"Thumb").src=url;const box=document.getElementById(key+"Box");box.innerHTML="";const im=new Image();im.src=url;box.appendChild(im);renderPins();updatePhotoGrid()}
+function setImage(key,file){if(!file)return;const url=URL.createObjectURL(file);images[key]=url;const thumb=$(key+"Thumb");if(thumb)thumb.src=url;const box=key==="photo1"?$("heroBox"):$(key+"Box");if(box){box.innerHTML="";const im=new Image();im.src=url;im.alt=key==="photo1"?"รูปหลักที่ดิน":"รูปเกี่ยวกับที่ดิน";box.appendChild(im)}renderPins();updatePhotoGrid()}
 function updatePhotoGrid(){const grid=document.getElementById("photoGrid"),count=[images.photo2,images.photo3].filter(Boolean).length;grid.style.display=count?"grid":"none";grid.className="photoGrid "+(count===1?"one":"");document.getElementById("photo2Box").style.display=images.photo2?"grid":"none";document.getElementById("photo3Box").style.display=images.photo3?"grid":"none"}["photo1","photo2","photo3","qr"].forEach(k=>document.getElementById(k+"File").addEventListener("change",e=>setImage(k,e.target.files[0])));updatePhotoGrid();
 function fit(){const s=(document.querySelector(".preview").clientWidth-20)/1080;document.querySelector(".poster").style.transform=`scale(${s})`;document.querySelector(".preview").style.height=1350*s+30+"px"}window.addEventListener("resize",fit);setTimeout(fit,80);
 function load(src){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(im);im.onerror=rej;im.src=src})}function cover(ctx,img,x,y,w,h){const r=Math.max(w/img.width,h/img.height),nw=img.width*r,nh=img.height*r;ctx.drawImage(img,x+(w-nw)/2,y+(h-nh)/2,nw,nh)}function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}function txt(ctx,t,x,y,size,color="#14231a",weight="700"){ctx.fillStyle=color;ctx.font=`${weight} ${size}px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif`;ctx.fillText(t,x,y)}
 function pinDraw(ctx,p,x,y,w,h){const px=x+w*p.x/100,py=y+h*p.y/100;ctx.save();ctx.shadowColor="rgba(0,0,0,.45)";ctx.shadowBlur=8;ctx.shadowOffsetY=3;ctx.fillStyle=p.type==="land"?"#f13b5f":"#2c7be5";ctx.beginPath();ctx.arc(px,py-16,15,0,Math.PI*2);ctx.fill();ctx.lineWidth=4;ctx.strokeStyle="#fff";ctx.stroke();ctx.shadowBlur=0;ctx.fillStyle="rgba(18,61,41,.92)";const labelW=Math.min(310,p.label.length*25+34);rr(ctx,px+22,py-49,labelW,38,19);ctx.fill();txt(ctx,p.label,px+39,py-21,24,"#fff","900");ctx.restore()}
-async function exportJpg(){const c=document.getElementById("canvas"),ctx=c.getContext("2d");ctx.fillStyle="#fff";ctx.fillRect(0,0,1080,1350);ctx.fillStyle="#123d29";ctx.fillRect(0,0,1080,205);txt(ctx,title.value,52,78,56,"#fff","900");txt(ctx,location.value,52,132,26,"#fff","500");ctx.fillStyle="#d5ad43";rr(ctx,720,48,320,110,24);ctx.fill();txt(ctx,priceText.value,750,98,44,"#102719","900");txt(ctx,size.value,800,142,30,"#102719","900");if(images.photo1)cover(ctx,await load(images.photo1),0,205,1080,500);else{ctx.fillStyle="#d8ddd5";ctx.fillRect(0,205,1080,500);txt(ctx,"รูปเกี่ยวกับที่ดิน 1",405,465,34,"#53645a","800")}pins.forEach(p=>pinDraw(ctx,p,0,205,1080,500));let leftX=38,leftY=731;if(images.photo2||images.photo3){if(images.photo2&&images.photo3){cover(ctx,await load(images.photo2),leftX,leftY,270,170);cover(ctx,await load(images.photo3),leftX+288,leftY,270,170)}else{cover(ctx,await load(images.photo2||images.photo3),leftX,leftY,558,170)}leftY+=194}ctx.fillStyle="#123d29";rr(ctx,leftX,leftY,560,112,20);ctx.fill();txt(ctx,"เหมาะสำหรับ",leftX+22,leftY+39,28,"#fff","900");let tx=leftX+22,ty=leftY+75;selected.forEach(t=>{const ww=Math.min(230,t.length*24+24);ctx.fillStyle="#d5ad43";rr(ctx,tx,ty-30,ww,40,20);ctx.fill();txt(ctx,t,tx+12,ty-3,24,"#102719","900");tx+=ww+10;if(tx>520){tx=leftX+22;ty+=46}});txt(ctx,"จุดเด่นแปลงนี้",622,775,32,"#123d29","900");let y=795;[h1.value,h2.value,h3.value,h4.value].forEach(v=>{ctx.fillStyle="#f2f3ef";rr(ctx,622,y,420,56,12);ctx.fill();ctx.fillStyle="#d5ad43";ctx.fillRect(622,y,9,56);txt(ctx,v,646,y+37,25,"#14231a","700");y+=66});ctx.fillStyle="#123d29";rr(ctx,622,1105,420,210,22);ctx.fill();ctx.fillStyle="#fff";rr(ctx,644,1132,150,146,14);ctx.fill();if(images.qr)cover(ctx,await load(images.qr),644,1132,150,146);else txt(ctx,"QR",700,1212,28,"#123d29","900");txt(ctx,"ติดต่อเจ้าของขายเอง",815,1162,25,"#fff","800");txt(ctx,"โทร "+phone.value,815,1212,24,"#fff","700");txt(ctx,"LINE: "+line.value,815,1260,24,"#fff","700");const a=document.createElement("a");a.download="landposter-v03.jpg";a.href=c.toDataURL("image/jpeg",0.92);a.click()}
-document.getElementById("exportBtn").addEventListener("click",exportJpg);
+async function exportJpg(){
+const c=$("canvas"),ctx=c.getContext("2d");
+ctx.fillStyle="#fff";ctx.fillRect(0,0,1080,1350);
+
+// Header
+ctx.fillStyle="#123d29";ctx.fillRect(0,0,1080,205);
+txt(ctx,val("title")||"ขายที่ดิน",52,78,56,"#fff","900");
+txt(ctx,val("location")||"",52,132,26,"#fff","500");
+
+ctx.fillStyle="#d5ad43";rr(ctx,720,48,320,110,24);ctx.fill();
+txt(ctx,val("priceText")||"-",750,98,44,"#102719","900");
+txt(ctx,val("size")||"",800,142,30,"#102719","900");
+
+// Main image
+if(images.photo1)cover(ctx,await load(images.photo1),0,205,1080,500);
+else{ctx.fillStyle="#d8ddd5";ctx.fillRect(0,205,1080,500);txt(ctx,"รูปเกี่ยวกับที่ดิน 1",405,465,34,"#53645a","800")}
+pins.forEach(p=>pinDraw(ctx,p,0,205,1080,500));
+
+// Secondary images + potential tags
+let leftX=38,leftY=731;
+if(images.photo2||images.photo3){
+  if(images.photo2&&images.photo3){
+    cover(ctx,await load(images.photo2),leftX,leftY,270,170);
+    cover(ctx,await load(images.photo3),leftX+288,leftY,270,170)
+  }else{
+    cover(ctx,await load(images.photo2||images.photo3),leftX,leftY,558,170)
+  }
+  leftY+=194
+}
+ctx.fillStyle="#123d29";rr(ctx,leftX,leftY,560,112,20);ctx.fill();
+txt(ctx,"เหมาะสำหรับ",leftX+22,leftY+39,28,"#fff","900");
+let tx=leftX+22,ty=leftY+75;
+selected.forEach(t=>{
+  const ww=Math.min(230,t.length*24+24);
+  ctx.fillStyle="#d5ad43";rr(ctx,tx,ty-30,ww,40,20);ctx.fill();
+  txt(ctx,t,tx+12,ty-3,24,"#102719","900");
+  tx+=ww+10;if(tx>520){tx=leftX+22;ty+=46}
+});
+
+// Highlights
+txt(ctx,"จุดเด่นแปลงนี้",622,775,32,"#123d29","900");
+let y=795;
+["h1","h2","h3","h4"].forEach(id=>{
+  const v=val(id);
+  ctx.fillStyle="#f2f3ef";rr(ctx,622,y,420,56,12);ctx.fill();
+  ctx.fillStyle="#d5ad43";ctx.fillRect(622,y,9,56);
+  txt(ctx,v,646,y+37,25,"#14231a","700");
+  y+=66
+});
+
+// Contact
+ctx.fillStyle="#123d29";rr(ctx,622,1105,420,210,22);ctx.fill();
+ctx.fillStyle="#fff";rr(ctx,644,1132,150,146,14);ctx.fill();
+if(images.qr)cover(ctx,await load(images.qr),644,1132,150,146);else txt(ctx,"QR",700,1212,28,"#123d29","900");
+txt(ctx,"ติดต่อเจ้าของขายเอง",815,1162,25,"#fff","800");
+txt(ctx,"โทร "+(val("phone")||"-"),815,1212,24,"#fff","700");
+txt(ctx,"LINE: "+(val("line")||"-"),815,1260,24,"#fff","700");
+
+const a=document.createElement("a");
+a.download="landposter-v04-fixed.jpg";
+a.href=c.toDataURL("image/jpeg",0.92);
+a.click()
+}
+$("exportBtn").addEventListener("click",exportJpg);
 </script></body></html>
