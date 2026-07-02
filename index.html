@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LandPoster Mobile v0.5 WYSIWYG</title>
+<title>LandPoster Mobile v0.6 Stable Export</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#e9e7df;color:#143323;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
@@ -57,7 +57,7 @@ canvas{display:none}
 </head>
 <body>
 <div class="wrap">
-  <div class="card"><h1>LandPoster Mobile v0.5 WYSIWYG</h1><div class="hint">Preview กับ Export ใช้ layout เดียวกันแล้ว: เห็นอย่างไร Export อย่างนั้น</div></div>
+  <div class="card"><h1>LandPoster Mobile v0.6 Stable Export</h1><div class="hint">แก้รอบนี้: Export ใช้ canvas stable เท่านั้น เพื่อบังคับให้หัวข้อ ราคา และพื้นที่ออกครบบน iPhone/Safari</div></div>
 
   <div class="card"><h2>1. รูปเกี่ยวกับที่ดิน</h2><div class="hint">ใส่แค่รูปเดียวก็ได้ ไม่บังคับครบ 3 รูป</div>
     <label>รูปที่ 1 / รูปหลัก <input id="photo1File" type="file" accept="image/*"><img id="photo1Thumb" class="thumb"></label>
@@ -209,7 +209,7 @@ async function exportPreviewJpg(){
     ctx.fillStyle="#fff";ctx.fillRect(0,0,1080,1350);
     ctx.drawImage(img,0,0,1080,1350);
     URL.revokeObjectURL(url);
-    saveCanvas(c,"landposter-v05-preview.jpg");
+    saveCanvas(c,"landposter-v06-preview-unused.jpg");
   };
   img.onerror=()=>{URL.revokeObjectURL(url);exportJpgManual()};
   img.src=url;
@@ -243,10 +243,10 @@ async function exportJpgManual(){
   ctx.fillStyle="#123d29";rr(ctx,622,1105,420,210,22);ctx.fill();ctx.fillStyle="#fff";rr(ctx,644,1132,150,146,14);ctx.fill();
   if(images.qr)cover(ctx,await load(images.qr),644,1132,150,146);else txt(ctx,"QR",700,1212,28,"#123d29","900");
   txt(ctx,"ติดต่อเจ้าของขายเอง",815,1162,25,"#fff","800",210);txt(ctx,"โทร "+(val("phone")||"-"),815,1212,24,"#fff","700",210);txt(ctx,"LINE: "+(val("line")||"-"),815,1260,24,"#fff","700",210);
-  saveCanvas(c,"landposter-v05-manual-fallback.jpg");
+  saveCanvas(c,"landposter-v06-stable-export.jpg");
 }
 
-$("exportBtn").addEventListener("click",exportPreviewJpg);
+$("exportBtn").addEventListener("click",exportJpgManual);
 </script>
 </body>
 </html>
